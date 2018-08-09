@@ -10,8 +10,18 @@ class UserController < ApplicationController
     def show
     end
     
+    
     def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to root_path, notice: 'User profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, notice:  @user.errors.messages}
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
+  end
     
     private
     

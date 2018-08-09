@@ -1,1 +1,18 @@
-Show
+<h2>Your Profile</h2>
+
+<div id="data_display" style="float: left; max-width: 500px;" >
+  <dl class="dl-horizontal">
+    <dt><strong><%= User.human_attribute_name(:name) %>:</strong></dt>
+    <dd><%= @user.name %></dd>
+    <dt><strong><%= User.human_attribute_name(:email) %>:</strong></dt>
+    <dd><%= @user.email %></dd>
+    <dt><strong><%= User.human_attribute_name(:contact) %>:</strong></dt>
+    <dd><%= @user.contact %></dd>
+    <dt><strong><%= User.human_attribute_name(:PAN) %>:</strong></dt>
+    <dd><%= @user.pan %></dd>
+    <dt><strong><%= User.human_attribute_name(:tax_status) %>:</strong></dt>
+    <dd><%= TaxStatus.find(@user.tax_status_id).name %></dd>
+  </dl>
+  <%= link_to "Edit", edit_user_path(@user.id), :class =>'btn btn-primary' %>
+</div>
+
