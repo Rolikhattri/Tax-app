@@ -1,0 +1,2 @@
+class TaxStatus < ApplicationRecord
+end
